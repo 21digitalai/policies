@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Remote Wrapper Smoke Test</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        background: #f5f7fb;
+        color: #18202f;
+      }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+      }
+
+      main {
+        width: min(100%, 640px);
+        border: 1px solid #d7deea;
+        border-radius: 8px;
+        background: #ffffff;
+        padding: 28px;
+        box-shadow: 0 18px 48px rgb(28 42 68 / 12%);
+      }
+
+      h1 {
+        margin: 0 0 12px;
+        font-size: clamp(28px, 6vw, 44px);
+        line-height: 1.05;
+      }
+
+      p {
+        margin: 0 0 18px;
+        font-size: 17px;
+        line-height: 1.55;
+      }
+
+      dl {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        gap: 10px 16px;
+        margin: 24px 0 0;
+        font-size: 14px;
+      }
+
+      dt {
+        font-weight: 700;
+      }
+
+      dd {
+        margin: 0;
+        overflow-wrap: anywhere;
+      }
+
+      code {
+        padding: 2px 6px;
+        border-radius: 6px;
+        background: #eef2f7;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          background: #111827;
+          color: #ecf2ff;
+        }
+
+        main {
+          border-color: #2d3748;
+          background: #182234;
+          box-shadow: none;
+        }
+
+        code {
+          background: #253148;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Remote Wrapper Smoke Test</h1>
+      <p>
+        This standalone page exists only to verify that the native Capacitor
+        wrapper can load a remote HTTPS URL from GitHub Pages.
+      </p>
+      <p>
+        If this page appears inside the simulator, <code>CAPACITOR_REMOTE_URL</code>
+        is pointing at the hosted page correctly.
+      </p>
+      <dl>
+        <dt>Repo</dt>
+        <dd>21digitalai/policies</dd>
+        <dt>Path</dt>
+        <dd>/remote-wrapper-smoke-test/</dd>
+        <dt>Created</dt>
+        <dd>2026-05-28</dd>
+      </dl>
+    </main>
+  </body>
+</html>
