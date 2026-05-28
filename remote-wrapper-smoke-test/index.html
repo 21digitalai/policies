@@ -60,6 +60,17 @@
         overflow-wrap: anywhere;
       }
 
+      .source-marker {
+        background: #e8f1ff;
+        border: 1px solid #bdd4ff;
+        border-radius: 8px;
+        color: #10376d;
+        font-size: 14px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        padding: 10px 12px;
+      }
+
       code {
         padding: 2px 6px;
         border-radius: 6px;
@@ -81,11 +92,18 @@
         code {
           background: #253148;
         }
+
+        .source-marker {
+          background: #1d355b;
+          border-color: #31598e;
+          color: #dce9ff;
+        }
       }
     </style>
   </head>
   <body>
     <main>
+      <div class="source-marker">REMOTE GITHUB PAGES HTML</div>
       <h1>Remote Wrapper Smoke Test</h1>
       <p>
         This standalone page exists only to verify that the native Capacitor
@@ -100,6 +118,8 @@
         <dd>21digitalai/policies</dd>
         <dt>Path</dt>
         <dd>/remote-wrapper-smoke-test/</dd>
+        <dt>Source marker</dt>
+        <dd>REMOTE_GITHUB_PAGES_HTML</dd>
         <dt>Created</dt>
         <dd>2026-05-28</dd>
       </dl>
