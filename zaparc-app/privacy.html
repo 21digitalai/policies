@@ -23,36 +23,38 @@
 <body>
     <h1>Privacy Policy</h1>
     <p><strong>ZapArc</strong></p>
-    <p class="last-updated">Last updated: May 8, 2026</p>
+    <p class="last-updated">Last updated: August 31, 2026</p>
 
     <h2>Overview</h2>
-    <p>ZapArc ("the App") is a self-custodial Bitcoin Lightning wallet. We are committed to your privacy. This policy explains what data the App handles, where it goes, and what stays on your device. The short version: <strong>your seed phrase and private keys never leave your device</strong>, and we do not run any server that stores your wallet contents.</p>
+    <p>ZapArc is a self-custodial Bitcoin and Lightning wallet available as a mobile application and browser extension. This policy explains what ZapArc handles, what remains on your device, and what may be processed by third-party networks or optional services. <strong>Your seed phrase and private keys remain under your control and are not collected by us.</strong></p>
 
-    <h2>Data Stored Only on Your Device</h2>
+    <h2>Data Stored Locally by Default</h2>
     <ul>
-        <li><strong>Wallet seed and private keys.</strong> Generated on your device and stored in your device's secure storage (iOS Keychain / Android Keystore). They are never transmitted to us or any third party. If you lose access to your device without a backup of your seed, we cannot recover your funds.</li>
-        <li><strong>Transaction history.</strong> Cached locally for fast display. The underlying Lightning / Bitcoin / Spark transactions are themselves public on their respective networks.</li>
-        <li><strong>Contacts you add.</strong> Lightning addresses, Spark addresses, and notes you save in the App's address book.</li>
-        <li><strong>App settings and preferences.</strong> Display currency, theme, biometric-unlock toggle, etc.</li>
+        <li><strong>Wallet seed and private keys.</strong> Generated or restored on your device and protected using the storage mechanisms available on that platform. They are not transmitted to us. If you lose access without a valid backup, we cannot recover your funds.</li>
+        <li><strong>Transaction history and wallet state.</strong> Cached locally for display and synchronization. Relevant payment information is also processed by the networks and infrastructure needed to perform the transaction.</li>
+        <li><strong>Contacts you add.</strong> Lightning addresses, Spark addresses, and notes you save in ZapArc's address book.</li>
+        <li><strong>Settings and preferences.</strong> Display currency, theme, security settings, selected wallet, and similar preferences.</li>
         <li><strong>Optional notes and labels you attach to transactions.</strong></li>
+        <li><strong>Diagnostic history.</strong> Bounded payment lifecycle and SDK logs may be retained locally to help diagnose wallet issues. They are not automatically uploaded. You choose whether to copy or export them and where to send them.</li>
     </ul>
 
     <h2>Data Sent to Third Parties</h2>
-    <p>For the App to function on the Lightning Network and deliver push notifications, certain non-secret information is shared with the following third parties. We do not run any of these services ourselves; they are operated by independent providers under their own privacy policies.</p>
+    <p>For ZapArc to perform requested wallet operations, certain non-secret information is processed by third-party protocols and service providers. Their own privacy policies and network rules apply.</p>
 
-    <h3>Breez Technology / Spark / Flashnet (network operators)</h3>
-    <p>The App uses the <a href="https://breez.technology/" target="_blank" rel="noopener">Breez SDK</a> to send and receive payments on the Bitcoin Lightning Network and the Spark Layer-2 network, and uses <a href="https://flashnet.xyz/" target="_blank" rel="noopener">Flashnet</a>'s automated market-maker for stablecoin swaps. The following is shared with these networks as required to make payments work:</p>
+    <h3>Breez Technology, Bitcoin, Lightning, Spark, and related providers</h3>
+    <p>ZapArc uses the <a href="https://breez.technology/" target="_blank" rel="noopener">Breez SDK</a> and related infrastructure to synchronize wallets and perform Bitcoin, Lightning, Spark, and supported token operations. Depending on the feature you use, the following may be processed as necessary:</p>
     <ul>
         <li>Your Spark <strong>identity public key</strong>, transaction signatures, payment amounts, and routing data.</li>
         <li>If you choose to claim a Lightning Address (<code>name@breez.tips</code>), that mapping is registered with Breez's LNURL server. The address itself is intentionally public so others can pay you.</li>
-        <li>For receiving notifications about Lightning payments arriving at your Lightning Address, the App registers a webhook URL (which encodes your push token, identity public key, and an optional wallet nickname) with Breez. Breez calls that webhook when a payment arrives.</li>
+        <li>Payment requests, payment hashes, public addresses, amounts, fees, routing information, timestamps, status, and other protocol data necessary to provide the requested wallet operation.</li>
+        <li>For optional payment notifications, notification routing information such as a push token, public wallet identity, and optional wallet nickname.</li>
     </ul>
 
     <h3>Apple Push Notification Service (APNs) and Google Firebase Cloud Messaging (FCM)</h3>
-    <p>To deliver push notifications when a payment arrives while the App is in the background, the App registers with Apple's APNs (on iOS) or Google's FCM (on Android). A device-specific push token is generated by the operating system and forwarded to a small backend we operate (see below). We do not associate this token with any personal identifier other than your wallet's identity public key.</p>
+    <p>On Mobile, if notifications are enabled, ZapArc registers with Apple's APNs or Google's FCM. A device-specific push token is generated and processed to route notifications to your device.</p>
 
-    <h3>21DigitalAI relay (Cloud Functions)</h3>
-    <p>We operate a small Firebase Cloud Functions backend whose only role is to receive payment-arrival webhooks from Breez and forward them to your device via APNs / FCM. The backend stores:</p>
+    <h3>ZapArc notification relay</h3>
+    <p>We operate notification infrastructure that receives payment-arrival events and forwards notifications through APNs or FCM. It may store:</p>
     <ul>
         <li>Your Spark identity public key (so it can route the right notification to the right device).</li>
         <li>Your push token.</li>
@@ -60,28 +62,28 @@
     </ul>
     <p>The backend never sees, stores, or has access to your seed, your private keys, or the value of your funds. Source code and infrastructure are operated by 21DigitalAI.</p>
 
-    <h3>Google Sign-In (optional)</h3>
-    <p>If you choose to sign in with Google for any optional feature in the App, Google receives the standard sign-in request. We receive an OAuth identifier and your basic profile information (name and email). We do not link your Google account to your wallet.</p>
+    <h3>Optional platform and backup services</h3>
+    <p>If you explicitly use an optional platform sign-in, cloud backup, sharing, or file-export feature, the selected operating-system or service provider processes the information you choose to provide under its own terms and privacy policy. ZapArc does not automatically upload diagnostic exports.</p>
 
     <h2>Information We Do <em>Not</em> Collect</h2>
     <ul>
         <li>We do not collect your seed phrase, private keys, or any data that would allow us to access your funds.</li>
-        <li>We do not run analytics or behavioral tracking inside the App. There are no third-party analytics SDKs.</li>
-        <li>We do not show ads or share data with advertisers.</li>
+        <li>We do not run analytics or behavioral tracking inside ZapArc. There are no third-party analytics SDKs.</li>
+        <li>We do not share wallet data with advertisers.</li>
         <li>We do not require you to create an account with us to use the App's core features.</li>
     </ul>
 
     <h2>On-Chain Data Is Public by Nature</h2>
-    <p>Bitcoin and Spark transactions are recorded on public ledgers. Once a transaction is broadcast, it is visible to anyone running a node on those networks. This is a property of the underlying networks, not of the App.</p>
+    <p>Bitcoin transactions and other protocol data may be publicly observable or disclosed to participants in the networks and services used to perform a transaction. Lightning payments are not recorded on the Bitcoin blockchain in the same way as on-chain transactions, but routing and service providers may process payment metadata. These are properties of the underlying systems, not additional collection by ZapArc.</p>
 
     <h2>Children's Privacy</h2>
-    <p>The App is not directed at children under 13. We do not knowingly collect personal information from children.</p>
+    <p>ZapArc is not directed at children under 13. We do not knowingly collect personal information from children.</p>
 
     <h2>Changes to This Policy</h2>
-    <p>We may update this Privacy Policy from time to time. The "Last updated" date at the top of this page reflects the most recent revision. Material changes will be communicated within the App.</p>
+    <p>We may update this Privacy Policy from time to time. The "Last updated" date at the top of this page reflects the most recent revision. Material changes will be communicated through ZapArc or another reasonable channel where required.</p>
 
     <h2>Contact</h2>
-    <p>For privacy questions, please open an issue at <a href="https://github.com/21digitalai/policies/issues">github.com/21digitalai/policies</a> or contact us via the support URL listed on the App's App Store / Play Store page.</p>
+    <p>For privacy questions, contact <a href="mailto:21digitalai+support@gmail.com">21digitalai+support@gmail.com</a>.</p>
 
     <p style="margin-top:40px"><a href="../">← Back to all policies</a></p>
 </body>
